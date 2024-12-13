@@ -14,7 +14,7 @@ SimpleCalc started off as a project to learn React, improve my CSS skills, and g
 
 You should be able to download the latest release from the release tab found here:  https://github.com/Royal51651/SimpleCalc/releases
 
-Tauri is still a fairly new framework, so it doesn't yet have cross-compilation. Because of this, certain architectures and operating systems may be unavailable. To solve this, compile from soure.
+Tauri is still a fairly new framework, so it doesn't yet have cross-compilation. Because of this, certain architectures and operating systems may be unavailable. To solve this, compile from source.
 
 How to compile from source:
 
