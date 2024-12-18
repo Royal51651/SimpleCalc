@@ -1,20 +1,19 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
-
+new Audio("/impact1.wav"),
+  new Audio("/impact2.wav"),
+  new Audio("/impact3.wav"),
+  new Audio("/impact4.wav")
+];
+const riserSounds = [
+  new Audio("/riser1.wav"),
+  new Audio("/riser2.wav")
+];
 function App() {
-
   // declaration of variables and sounds used throughout the project
   const impactSounds = [
-    new Audio("/impact1.wav"),
-    new Audio("/impact2.wav"),
-    new Audio("/impact3.wav"),
-    new Audio("/impact4.wav")
-  ];
-  const riserSounds = [
-    new Audio("/riser1.wav"),
-    new Audio("/riser2.wav")
-  ];
+    
   const [muteStatus, setMute] = useState("Mute");
   const [zoomed, setZoom] = useState(false);
   const [brightText, setBrightText] = useState(false);
