@@ -1,14 +1,14 @@
-// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #[tauri::command]
-fn calculate(expr: &str) -> String {
-    let mut tokens = tokenize(expr);
-    let mut result = tokens.remove(0).parse::<i64>().unwrap(); // Get the first number
+fn calculate(expr: String) -> String {
+    let mut tokens: Vec<String> = tokenize(expr);
+    // parse and cast the first number to startd the process
+    let mut result: f64 = tokens.remove(0).parse::<f64>().unwrap();
 
     while !tokens.is_empty() {
-        let operator = tokens.remove(0);
-        let next_operand = tokens.remove(0).parse::<i64>().unwrap();
-
-        // Evaluate left to right without considering operator precedence
+        // iterates through tokens from left to right
+        // we dont realllly have to care about PEMDAS as the calculations aren't the main focus
+        let operator: String = tokens.remove(0);
+        let next_operand: f64 = tokens.remove(0).parse::<f64>().unwrap();
         result = match operator.as_str() {
             "+" => result + next_operand,
             "-" => result - next_operand,
@@ -21,21 +21,21 @@ fn calculate(expr: &str) -> String {
     format!("{}", result.to_string())
 }
 
-fn tokenize(expr: &str) -> Vec<String> {
-    let mut tokens = Vec::new();
-    let mut current_token = String::new();
+// breaks equation into smaller string tokens 
+fn tokenize(expr: String) -> Vec<String> {
+    let mut tokens: Vec<String> = Vec::new();
+    let mut current_token: String = String::new();
 
     for c in expr.chars() {
-        if c.is_digit(10) {
-            current_token.push(c);
-        } else if c == '+' || c == '-' || c == '*' || c == '/' {
+        if c == '+' || c == '-' || c == '*' || c == '/' {
             if !current_token.is_empty() {
                 tokens.push(current_token.clone());
                 current_token.clear();
             }
             tokens.push(c.to_string());
         } else {
-            panic!("Invalid character in expression");
+            // in normal scenarios, input will be limited to numbers and operations, so no further input-checking is needed
+            current_token.push(c);
         }
     }
     if !current_token.is_empty() {
