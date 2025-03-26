@@ -25,7 +25,6 @@ html, body {
     height: 100%;
     color: #0f0f0f;
     background-color: #f6f6f6;
-
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -41,7 +40,7 @@ html, body {
 
 .buttonGrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .titleRow {
@@ -52,14 +51,8 @@ html, body {
     transition:
         padding 4s ease-in-out,
         font-size 4s ease-in-out;
-    border: 1px white solid;
-    border-radius: 5px;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background: #1c1c1c;
     align-items: center;
     justify-content: center;
-    text-shadow: 0px 0px 50px white;
     max-height: 100vh;
 }
 
@@ -69,22 +62,11 @@ html, body {
     font-size: 500%;
 }
 
-.titleRow.brightText {
-    text-shadow:
-        0px 0px 80px white,
-        0px 0px 70px white,
-        0px 0px 60px white,
-        0px 0px 50px white,
-        0px 0px 40px white,
-        0px 0px 30px white,
-        0px 0px 20px white,
-        0px 0px 10px white;
-}
-
 .titleRow.easeText {
     transition:
         text-shadow 4s ease-in-out,
         padding 4s ease-in-out,
+        color 4s ease-in-out, 
         font-size 4s ease-in-out;
 }
 
@@ -115,41 +97,19 @@ button {
     height: 100%;
     border: 1px solid transparent;
     padding: flex flex;
-    font-size: 2em;
+    font-size: max(min(5vw, 5vh), 20px);
+    
     font-weight: 500;
     font-family: inherit;
-    color: #0f0f0f;
     background-color: #ffffff;
     transition: 
         border-color 0.25s ease-in-out;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-    text-shadow:
-        0px 0px 10px white,
-        0px 0px 20px white,
-        0px 0px 30px white;
 }
 
 button {
     transition: text-shadow 50ms ease-in-out;
     cursor: pointer;
-}
-
-button:hover {
-    border-color: white;
-    border-radius: 2px;
-    text-shadow:
-        0px 0px 10px white,
-        0px 0px 20px white,
-        0px 0px 30px white,
-        0px 0px 40px white;
-}
-button:active {
-    border-inline: 2px;
-    text-shadow:
-        0px 0px 10px white,
-        0px 0px 15px white,
-        0px 0px 20px white,
-        0px 0px 25px white;
 }
 
 input,
@@ -161,7 +121,7 @@ button {
     margin-right: 5px;
 }
 
-@media (prefers-color-scheme: dark) {
+.darkTheme{
     :root {
         color: #f6f6f6;
         background-color: #2f2f2f;
@@ -174,9 +134,119 @@ button {
     input,
     button {
         color: #ffffff;
-        background-color: #0f0f0f98;
+        background-color: #2f2f2f;
     }
     button:active {
         background-color: #0f0f0f69;
+    }
+
+    button:hover {
+        border-color: white;
+        border-radius: 2px;
+        text-shadow:
+            0px 0px 10px white,
+            0px 0px 20px white,
+            0px 0px 30px white,
+            0px 0px 40px white;
+    }
+    button:active {
+        border-inline: 2px;
+        text-shadow:
+            0px 0px 10px white,
+            0px 0px 15px white,
+            0px 0px 20px white,
+            0px 0px 25px white;
+    }
+    .titleRow.brightText {
+        text-shadow:
+            0px 0px 200px white,
+            0px 0px 175px white,
+            0px 0px 150px white,
+            0px 0px 125px white,
+            0px 0px 100px white,
+            0px 0px 75px white,
+            0px 0px 50px white,
+            0px 0px 25px white;
+
+    }
+    .titleRow {
+        background: #1c1c1c;
+        text-shadow: 0px 0px 50px white;
+        border: 1px white solid;
+
+    }
+    .titleRow h1 {
+        color: white;
+    }
+    input,
+    button {
+        text-shadow:
+        0px 0px 10px white,
+        0px 0px 20px white,
+        0px 0px 30px white;
+    }
+}
+
+.lightTheme {
+    :root {
+        color: #2f2f2f;
+        background-color: #ffffff;
+    }
+
+    a:hover {
+        color: #24c8db;
+    }
+
+    input,
+    button {
+        color: #2f2f2f;
+        background-color: #ffffff98;
+        border-color: #dddddd;
+    }
+    button:active {
+        background-color: #0f0f0f69;
+    }
+
+    button:hover {
+        border-color: black;
+        border-radius: 2px;
+        text-shadow:
+            0px 0px 10px black,
+            0px 0px 20px black,
+            0px 0px 30px black,
+            0px 0px 40px black;
+    }
+    button:active {
+        border-inline: 2px;
+        text-shadow:
+            0px 0px 10px black,
+            0px 0px 15px black,
+            0px 0px 20px black,
+            0px 0px 25px black;
+    }
+    .titleRow.brightText {
+        text-shadow:
+            /* duplicate the text shadow here because black doesn't show up as well */
+            0px 0px 200px black,
+            0px 0px 175px black,
+            0px 0px 150px black,
+            0px 0px 125px black,
+            0px 0px 100px black,
+            0px 0px 75px black,
+            0px 0px 50px black,
+            0px 0px 25px black;
+
+    }
+    .titleRow {
+        background: #ffffff;
+        text-shadow: 0px 0px 50px black;
+        border: 1px black solid;
+    }
+    input,
+    button {
+        text-shadow:
+        0px 0px 10px black,
+        0px 0px 20px black,
+        0px 0px 30px black;
     }
 }
