@@ -33,7 +33,7 @@ Install the dependencies
 
 And finally run the project
 
-```npm run tauri build --release```
+```npm run tauri build```
 
 From there, you should be presented with instructions to install based on your operating system.
 
